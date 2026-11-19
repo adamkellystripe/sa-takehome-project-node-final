@@ -104,6 +104,7 @@ app.get("/session-status", async (req, res) => {
     payment_status: session.payment_status,
     payment_intent_id: session.payment_intent?.id,
     payment_intent_status: session.payment_intent?.status,
+    amount_total: session.amount_total,
     subscription_id: session.payment_intent ? null : session.subscription?.id,
     subscription_status: session.payment_intent ? null : session.subscription?.status
   });
