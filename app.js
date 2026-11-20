@@ -8,7 +8,7 @@ var app = express();
 //const app = express();
 //app.use(express.static('public'));
 
-//Defining prices about the routes
+//Defining prices about the routes. Add Prices here
 const prices = new Map([
   ["1", "price_1Ud2ceRvKycpLr3m6FCHQLrX"],
   ["2", "price_1Ud7snRvKycpLr3mHKPzWmM0"],

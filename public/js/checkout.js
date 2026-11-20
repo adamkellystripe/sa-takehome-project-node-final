@@ -11,7 +11,7 @@ document
 // Fetches a Checkout Session and captures the client secret
 async function initialize() {
      const item = new URLSearchParams(window.location.search).get("item");
-     
+
   const promise = fetch("/create-checkout-session", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -28,11 +28,16 @@ async function initialize() {
   checkout = stripe.initCheckoutElementsSdk({
     clientSecret: promise,
     elementsOptions: { appearance },
+     adaptivePricing: { allowed: true },
   });
 
   checkout.on('change', (session) => {
     // Handle changes to the checkout session
     document.getElementById('submit').disabled = !session.canConfirm;
+    //Adaptive Pricing
+    document.querySelector("#button-text").textContent = `Pay ${
+      session.total.total.amount
+    } now`;
   });
 
   const loadActionsResult = await checkout.loadActions();
@@ -50,6 +55,9 @@ async function initialize() {
 
   const paymentElement = checkout.createPaymentElement();
   paymentElement.mount("#payment-element");
+  //Adaptive Pricing
+  const currencySelectorElement = checkout.createCurrencySelectorElement();
+  currencySelectorElement.mount("#currency-selector-element");
 }
 
 async function handleSubmit(e) {
