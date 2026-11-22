@@ -1,6 +1,6 @@
 #  Solutions Architect - Written Project
 
-Please find the [SA Written Project - Adam Kelly (PDF)](docs/SA-written-project-AdamKelly.pdf) PDF attached containing the full walkthrough of Adam Kelly’s Solutions Architect take-home assignment: https://github.com/adamkellystripe/sa-takehome-project-node-final
+Please find the [SA Written Project - Adam Kelly](docs/SA-written-project-AdamKelly.pdf) PDF attached containing the full walkthrough of Adam Kelly’s Solutions Architect take-home assignment: https://github.com/adamkellystripe/sa-takehome-project-node-final
 
 To go straight to running the application, you can follow the below steps.
 
