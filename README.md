@@ -6,9 +6,9 @@ To go straight to running the application, you can follow the below steps.
 
 ## How to Build, Configure and Run
 
-- Open your terminal locally or code editor locally
+- Open your terminal or code editor locally
 
-- Run the following command in order to clone the repo:
+- Run the following command in the terminal order to clone the repo:
 
   ```bash
   git clone https://github.com/adamkellystripe/sa-takehome-project-node-final.git
@@ -45,3 +45,5 @@ To go straight to running the application, you can follow the below steps.
 - You can then purchase a product by entering `4242 4242 4242 4242` as the card number with any future date as in the expiry field and any cvc.
 
 Once completed and saved, the user will be able to navigate to http://localhost:3000 in their browser to view the home page.
+
+Please refer to the PDF submission for the detailed overview.
