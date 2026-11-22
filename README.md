@@ -42,7 +42,7 @@ To go straight to running the application, you can follow the below steps.
 
 - In your terminal run: `npm start`
 
-- You can then purchase a product by entering `4242 4242 4242 4242` as the card number with any future date as in the expiry field and any cvc.
+- You can then purchase a product by entering `4242 4242 4242 4242` as the card number with any future date in the expiry field and any cvc.
 
 Once completed and saved, the user will be able to navigate to http://localhost:3000 in their browser to view the home page.
 
