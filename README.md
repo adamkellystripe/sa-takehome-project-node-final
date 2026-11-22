@@ -1,12 +1,12 @@
 #  Solutions Architect - Written Project
 
-Please find the [SA Written Project - Adam Kelly](docs/SA-written-project-AdamKelly.pdf) PDF attached containing the full walkthrough of Adam Kelly’s Solutions Architect take-home assignment: https://github.com/adamkellystripe/sa-takehome-project-node-final
+Please find the [SA Written Project - Adam Kelly](docs/SA-written-project-AdamKelly.pdf) PDF attached (also submitted directly) containing the full walkthrough of Adam Kelly’s Solutions Architect take-home assignment: https://github.com/adamkellystripe/sa-takehome-project-node-final
 
 To go straight to running the application, you can follow the below steps.
 
 ## How to Build, Configure and Run
 
-- Open your terminal locally.
+- Open your terminal locally or code editor locally
 
 - Run the following command in order to clone the repo:
 
@@ -16,13 +16,13 @@ To go straight to running the application, you can follow the below steps.
   npm install
   ```
 
-- Open the Stripe Dashboard and obtain your publishable and secret key.
+- Open the Stripe Dashboard and obtain your [publishable and secret key](https://dashboard.stripe.com/test/apikeys).
 
-- In `sample.env`, add your secret key.
+- In `sample.env`, add your secret key and rename the file to .env.
 
 - In `checkout.js`, replace `{add publishable key}` with your publishable key.
 
-- On the Stripe Dashboard navigate to Product Catalog and click create. Repeat this 3 times for each product below.
+- On the Stripe Dashboard navigate to [Product Catalog](https://dashboard.stripe.com/test/products?status=active&listId=active) and click create. Repeat this 3 times for each product below.
 
   | Name | Pricing | Amount |
   | --- | --- | --- |

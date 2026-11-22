@@ -10,9 +10,9 @@ var app = express();
 
 //Defining prices about the routes. Add Prices here
 const prices = new Map([
-  ["1", "price_1Ue545RvKycpLr3m0MZkBsIV"],
-  ["2", "price_1Ud7snRvKycpLr3mHKPzWmM0"],
-  ["3", "price_1Ud7uFRvKycpLr3mmhiQD7Q2"],
+  ["1", "{Add Price ID}"],
+  ["2", "{Add Price ID}"],
+  ["3", "{Add Price ID}"],
 ]);
 
 //Adding Webhook Function 

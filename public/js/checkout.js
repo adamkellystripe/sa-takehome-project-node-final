@@ -1,4 +1,4 @@
-// const stripe = Stripe("{add publishable key}"); // Add your publishable key here
+const stripe = Stripe("{add publishable key}"); // Add your publishable key here
 
 
 let checkout;
