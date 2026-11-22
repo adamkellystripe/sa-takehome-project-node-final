@@ -46,7 +46,7 @@ async function fulfillCheckout(sessionId) {
 
 // Use the secret provided by Stripe CLI for local testing
 // or your webhook endpoint's secret.
-const endpointSecret = 'whsec_sSfw4ogYcDO07pVY0W9dMOGOO7YQyrbw';
+// const endpointSecret = '{add webhook signing secret here}'; 
 
 // Use body-parser to retrieve the raw body as a buffer
 const bodyParser = require('body-parser');

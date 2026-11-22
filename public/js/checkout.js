@@ -1,4 +1,3 @@
-const stripe = Stripe("pk_test_51TRSyCRvKycpLr3m95wbLWb1cOAzMoleHrKvA0qjKGXfQYpDIc9zCLZpRN7pgDhsWLInrVbGHIRwrpwMtlB0jBrq00X8mQwS39");
 // const stripe = Stripe("{add publishable key}"); // Add your publishable key here
 
 
