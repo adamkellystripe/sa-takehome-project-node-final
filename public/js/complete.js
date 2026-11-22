@@ -52,7 +52,7 @@ function setSessionDetails(session) {
   document.querySelector("#intent-status").textContent = session.status;
   document.querySelector("#session-status").textContent = session.payment_status;
  //document.querySelector("#amount-charged").textContent = session.amount_total;
- document.querySelector("#amount-charged").textContent = "$" + (session.amount_total / 100).toFixed(2);
+ document.querySelector("#amount-charged").textContent = "$" + (session.amount_total / 100).toFixed(2) + " USD";
   if (session.payment_intent_id) {
     document.querySelector("#intent-id").textContent = session.payment_intent_id;
     document.querySelector("#payment-intent-status").textContent = session.payment_intent_status;

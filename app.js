@@ -10,10 +10,70 @@ var app = express();
 
 //Defining prices about the routes. Add Prices here
 const prices = new Map([
-  ["1", "price_1Ud2ceRvKycpLr3m6FCHQLrX"],
+  ["1", "price_1Ue545RvKycpLr3m0MZkBsIV"],
   ["2", "price_1Ud7snRvKycpLr3mHKPzWmM0"],
   ["3", "price_1Ud7uFRvKycpLr3mmhiQD7Q2"],
 ]);
+
+//Adding Webhook Function 
+
+async function fulfillCheckout(sessionId) {
+  // Don't put any keys in code. See https://docs.stripe.com/keys-best-practices.
+  // Find your keys at https://dashboard.stripe.com/apikeys.
+  console.log('Fulfilling Checkout Session ' + sessionId);
+  
+
+  // TODO: Make this function safe to run multiple times,
+  // even concurrently, with the same session ID
+
+  // TODO: Make sure fulfillment hasn't already been
+  // performed for this Checkout Session
+
+  // Retrieve the Checkout Session from the API with line_items expanded
+  const checkoutSession = await stripe.checkout.sessions.retrieve(sessionId, {
+    expand: ['line_items'],
+  });
+
+  // Check the Checkout Session's payment_status property
+  // to determine if fulfillment should be performed
+  if (checkoutSession.payment_status !== 'unpaid') {
+    // TODO: Perform fulfillment of the line items
+
+    // TODO: Record/save fulfillment status for this
+    // Checkout Session
+  }
+}
+
+// Use the secret provided by Stripe CLI for local testing
+// or your webhook endpoint's secret.
+const endpointSecret = 'whsec_sSfw4ogYcDO07pVY0W9dMOGOO7YQyrbw';
+
+// Use body-parser to retrieve the raw body as a buffer
+const bodyParser = require('body-parser');
+
+app.post('/webhook', express.raw({type: 'application/json'}), async (request, response) => {
+  const payload = request.body;
+  const sig = request.headers['stripe-signature'];
+
+  let event;
+
+  try {
+    event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+  } catch (err) {
+    console.log(err.message);
+    return response.status(400).send(`Webhook Error: ${err.message}`);
+  
+  }
+
+  if (
+    event.type === 'checkout.session.completed'
+    || event.type === 'checkout.session.async_payment_succeeded'
+  ) {
+    fulfillCheckout(event.data.object.id);
+  }
+
+  response.status(200).end();
+});
 
 // view engine setup (Handlebars)
 app.engine('hbs', exphbs({

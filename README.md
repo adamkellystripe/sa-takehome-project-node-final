@@ -1,29 +1,46 @@
-# Take home project
-This is a simple e-commerce application that a customer can use to purchase a book, but it's missing the payments functionality —  your goal is to integrate Stripe to get this application running!
+#  Solutions Architect - Written Project
+Please find the PDF attached containing the full walkthrough of Adam Kelly’s Solutions Architect take-home assignment: https://github.com/adamkellystripe/sa-takehome-project-node-final
 
-## Candidate instructions
-You'll receive these in email.
+To go straight to running the application, you can follow the below steps.
 
-## Application overview
-This demo is written in Javascript (Node.js) with the [Express framework](https://expressjs.com/). You'll need to retrieve a set of testmode API keys from the Stripe dashboard (you can create a free test account [here](https://dashboard.stripe.com/register)) to run this locally.
+## How to Build, Configure and Run
 
-We're using the [Bootstrap](https://getbootstrap.com/docs/4.6/getting-started/introduction/) CSS framework. It's the most popular CSS framework in the world and is pretty easy to get started with — feel free to modify styles/layout if you like. 
+Open your terminal locally.
 
-To simplify this project, we're also not using any database here, either. Instead `app.js` includes a simple switch statement to read the GET params for `item`. 
+Run the following command in order to clone the repo:
 
-To get started, clone the repository and run `npm install` to install dependencies:
-
-```
-git clone https://github.com/mattmitchell6/sa-takehome-project-node && cd sa-takehome-project-node
+```bash
+git clone https://github.com/adamkellystripe/sa-takehome-project-node-final.git
+cd sa-takehome-project-node-final
 npm install
 ```
 
-Rename `sample.env` to `.env` and populate with your Stripe account's test API keys
+Open the Stripe Dashboard and obtain your publishable and secret key.
 
-Then run the application locally:
+In `sample.env`, add your secret key.
 
+In `checkout.js`, replace `{add publishable key}` with your publishable key.
+
+On the Stripe Dashboard navigate to Product Catalog and click create. Repeat this 3 times for each product below.
+
+| Name | Pricing | Amount |
+| --- | --- | --- |
+| The Art of Doing Science and Engineering | One-off | 23.00 USD |
+| The Making of Prince of Persia: Journals 1985-1993 | One-off | 25.00 USD |
+| Working in Public: The Making and Maintenance of Open Source | One-off | 28.00 USD |
+
+Each product will now have a price ID (`price_…`) on the Dashboard. Copy and paste this into `app.js` on line 12, in the same order as above.
+
+In your terminal run: `npm start`
+
+You can also optionally initiate a local webhook listener to observe events sent upon checkout completion by opening another terminal window and running:
+
+```bash
+stripe listen --events=checkout.session.completed --forward-to localhost:3000/webhook
 ```
-npm start
-```
 
-Navigate to [http://localhost:3000](http://localhost:3000) to view the index page.
+Copy the webhook signing secret (`whsec_..`) provided in the output and replace `{add webhook secret here}` on line 49 of `app.js` with the secret key.
+
+10. You can then purchase a product by entering `4242 4242 4242 4242` as the card number with any future date as in the expiry field and any cvc.
+
+Once completed and saved, the user will be able to navigate to http://localhost:3000 in their browser to view the home page.
