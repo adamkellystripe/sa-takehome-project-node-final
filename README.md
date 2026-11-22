@@ -8,7 +8,7 @@ To go straight to running the application, you can follow the below steps.
 
 - Open your terminal or code editor locally
 
-- Run the following command in the terminal order to clone the repo:
+- Run the following commands in the terminal order to clone the repo:
 
   ```bash
   git clone https://github.com/adamkellystripe/sa-takehome-project-node-final.git
@@ -18,7 +18,7 @@ To go straight to running the application, you can follow the below steps.
 
 - Open the Stripe Dashboard and obtain your [publishable and secret key](https://dashboard.stripe.com/test/apikeys).
 
-- In `sample.env`, add your secret key and rename the file to .env.
+- In your code editor, open `sample.env`, add your secret key and rename the file to .env.
 
 - In `checkout.js`, replace `{add publishable key}` with your publishable key.
 
@@ -32,8 +32,6 @@ To go straight to running the application, you can follow the below steps.
 
 - Each product will now have a price ID (`price_…`) on the Dashboard. Copy and paste this into `app.js` on line 12, in the same order as above.
 
-- In your terminal run: `npm start`
-
 - You can also optionally initiate a local webhook listener to observe events sent upon checkout completion by opening another terminal window and running:
 
   ```bash
@@ -41,6 +39,8 @@ To go straight to running the application, you can follow the below steps.
   ```
 
 - Copy the webhook signing secret (`whsec_..`) provided in the output and replace `{add webhook secret here}` on line 49 of `app.js` with the secret key.
+
+- In your terminal run: `npm start`
 
 - You can then purchase a product by entering `4242 4242 4242 4242` as the card number with any future date as in the expiry field and any cvc.
 
